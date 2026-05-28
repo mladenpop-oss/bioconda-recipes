@@ -8,19 +8,24 @@ package:
   version: "{{ version }}"
 
 source:
-  url: "https://github.com/mladenpop-oss/bit-pop/releases/download/v{{ version }}/bit-pop-x86_64-linux.tar.gz"
-  sha256: "d9fe77d533287f5e001182c2125fa4e28f6267f2df562fd5fc60a5b0f1f0c400"
+  url: "https://github.com/mladenpop-oss/bit-pop/archive/v{{ version }}.tar.gz"
+  sha256: "2e592737c17ab11388a170936b118259e9967746b6950b596790d45fcfa54d31"
 
 build:
   number: {{ build_number }}
-  noarch: generic
-  run_exports:
-    - {{ pin_subpackage(name, max_pin="x.x") }}
+  script: cargo build --release --locked && install -D -m 755 target/release/bit-pop $PREFIX/bin/bit-pop
 
 requirements:
+  build:
+    - {{ compiler('rust') }}
+    - {{ stdlib('c') }}
+    - pkg-config
+    - zlib
   run:
     - openssl >=3.0
     - zlib
+  run_constrained:
+    - rust >=1.70
 
 test:
   commands:
