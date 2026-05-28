@@ -13,7 +13,7 @@ source:
 
 build:
   number: {{ build_number }}
-  script: cargo build --release && install -D -m 755 target/release/bit-pop $PREFIX/bin/bit-pop
+  script: cargo build --release && install -D -m 755 target/release/bit_pop $PREFIX/bin/bit-pop
   run_exports:
     - {{ pin_subpackage(name, max_pin="x.x") }}
 
