@@ -9,7 +9,7 @@ package:
 
 source:
   url: "https://github.com/mladenpop-oss/bit-pop/archive/v{{ version }}.tar.gz"
-  sha256: "71d62612e5430299bba42089db529fbb9176439a789a0f281a4d4d1449144d4c"
+  sha256: "076e84e8f7cd500cb118e9d5a078a393665474f3a01ca320682b0878618837fa"
 
 build:
   number: {{ build_number }}
