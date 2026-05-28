@@ -4,8 +4,8 @@
 
 set -ex
 
-# Extract the binary (source file is already downloaded)
-tar xzf bit-pop-x86_64-linux.tar.gz
+# conda-build renames source files with hash suffix
+tar xzf bit-pop-x86_64-linux_*.tar.gz
 
 # Install to conda bin directory
 install -d $PREFIX/bin
