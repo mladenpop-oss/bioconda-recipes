@@ -13,6 +13,9 @@ source:
 
 build:
   number: {{ build_number }}
+  script: bash build.sh
+  run_exports:
+    - {{ pin_subpackage(name, max_pin="x.x") }}
 
 requirements:
   run:
