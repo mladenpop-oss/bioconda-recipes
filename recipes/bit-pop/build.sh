@@ -1,11 +1,13 @@
 #!/bin/bash
 # Bit-Pop Bioconda build script
-# Extracts pre-built binary from GitHub Release and installs to conda prefix
-
 set -ex
 
-# conda-build renames source files with hash suffix
-tar xzf bit-pop-x86_64-linux_*.tar.gz
+# List files for debugging
+ls -la
+
+# Extract the binary - conda-build renames with hash, use ls to find it
+TAR_FILE=$(ls *.tar.gz 2>/dev/null | head -1)
+tar xzf "$TAR_FILE"
 
 # Install to conda bin directory
 install -d $PREFIX/bin
