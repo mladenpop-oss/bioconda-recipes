@@ -13,7 +13,7 @@ source:
 
 build:
   number: {{ build_number }}
-  script: bash build.sh
+  noarch: generic
   run_exports:
     - {{ pin_subpackage(name, max_pin="x.x") }}
 
